@@ -1,0 +1,50 @@
+{
+  "ip": "192.168.56.104",
+  "open_ports": [
+    {
+      "port": 135,
+      "service": "msrpc",
+      "version": ""
+    },
+    {
+      "port": 139,
+      "service": "netbios-ssn",
+      "version": ""
+    },
+    {
+      "port": 445,
+      "service": "microsoft-ds",
+      "version": ""
+    },
+    {
+      "port": 49152,
+      "service": "",
+      "version": ""
+    },
+    {
+      "port": 49153,
+      "service": "",
+      "version": ""
+    },
+    {
+      "port": 49154,
+      "service": "",
+      "version": ""
+    },
+    {
+      "port": 49155,
+      "service": "",
+      "version": ""
+    },
+    {
+      "port": 49156,
+      "service": "",
+      "version": ""
+    },
+    {
+      "port": 49157,
+      "service": "",
+      "version": ""
+    }
+  ]
+}
