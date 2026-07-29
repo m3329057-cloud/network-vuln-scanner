@@ -1,50 +1,53 @@
 {
   "ip": "192.168.56.104",
+  "os": "Microsoft Windows Vista SP2 or Windows 7 or Windows Server 2008 R2 or Windows 8.1",
+  "scan_duration": 62.0,
   "open_ports": [
     {
       "port": 135,
       "service": "msrpc",
-      "version": ""
+      "version": "Microsoft Windows RPC"
     },
     {
       "port": 139,
       "service": "netbios-ssn",
-      "version": ""
+      "version": "Microsoft Windows netbios-ssn"
     },
     {
       "port": 445,
       "service": "microsoft-ds",
-      "version": ""
+      "version": "Microsoft Windows 7 - 10 microsoft-ds"
     },
     {
       "port": 49152,
-      "service": "",
-      "version": ""
+      "service": "msrpc",
+      "version": "Microsoft Windows RPC"
     },
     {
       "port": 49153,
-      "service": "",
-      "version": ""
+      "service": "msrpc",
+      "version": "Microsoft Windows RPC"
     },
     {
       "port": 49154,
-      "service": "",
-      "version": ""
+      "service": "msrpc",
+      "version": "Microsoft Windows RPC"
     },
     {
       "port": 49155,
-      "service": "",
-      "version": ""
+      "service": "msrpc",
+      "version": "Microsoft Windows RPC"
     },
     {
       "port": 49156,
-      "service": "",
-      "version": ""
+      "service": "msrpc",
+      "version": "Microsoft Windows RPC"
     },
     {
       "port": 49157,
-      "service": "",
-      "version": ""
+      "service": "msrpc",
+      "version": "Microsoft Windows RPC"
     }
-  ]
+  ],
+  "message": null
 }
