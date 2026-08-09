@@ -68,7 +68,7 @@ class NetworkScanner:
             }
             On failure, returns {"ip": ip, "error": str, ...}
         """
-        print(f"[+] Starting {self.scan_mode} scan on {ip} ...")
+        #print(f"[+] Starting {self.scan_mode} scan on {ip} ...")
         start_time = time.time()
         try:
             self.nm.scan(ip, arguments=f'{self.scan_type} --host-timeout 120s')
@@ -124,10 +124,10 @@ class NetworkScanner:
         total = len(list(network.hosts()))
         print(f"[+] Starting subnet scan on {subnet} ({total} hosts)")
         for i, ip in enumerate(network.hosts(), 1):
-            print(f"[{i}/{total}] Scanning {ip} ...")
+           # print(f"[{i}/{total}] Scanning {ip} ...")
             result = self.scan_single(str(ip))
             results.append(result)
-        print(f"[+] Subnet scan complete — {total} hosts processed")
+        #print(f"[+] Subnet scan complete — {total} hosts processed")
         return results
 
     def arp_scan(self, subnet, iface=None, timeout=2):
