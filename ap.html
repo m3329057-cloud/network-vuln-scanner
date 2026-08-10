@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NetSentry Dashboard</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="app-container">
+        <header class="header">
+            <div class="header__brand">
+                <svg class="header__logo-icon" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                    <circle cx="8" cy="8" r="6" fill="var(--color-accent)"/>
+                </svg>
+                <h1 class="header__title">NetSentry</h1>
+            </div>
+            <div class="header__status" id="header-status">
+                <span class="status-indicator"></span>
+                <span id="status-text">ENGINE READY</span>
+            </div>
+        </header>
+
+        <main class="main-content">
+            <section class="scan-control panel">
+                <label for="target-ip" class="visually-hidden">Target IP Address</label>
+                <input type="text" id="target-ip" class="scan-control__input" value="192.168.56.104" spellcheck="false">
+                <button class="btn btn--primary" id="scan-btn">RUN SCAN</button>
+            </section>
+
+            <div class="dashboard-grid">
+                <div class="dashboard-grid__main">
+                    <section class="panel">
+                        <header class="panel__header">
+                            <h2 class="panel__title" id="services-title">OPEN PORTS & SERVICES &mdash; 192.168.56.104</h2>
+                        </header>
+                        <div class="table-responsive">
+                            <table class="data-table">
+                                <thead>
+                                    <tr>
+                                        <th scope="col">PORT</th>
+                                        <th scope="col">SERVICE</th>
+                                        <th scope="col">VERSION</th>
+                                        <th scope="col">STATUS</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="services-body"></tbody>
+                            </table>
+                        </div>
+                    </section>
+
+                    <section class="panel">
+                        <header class="panel__header">
+                            <h2 class="panel__title">MATCHED VULNERABILITIES</h2>
+                        </header>
+                        <div class="table-responsive">
+                            <table class="data-table">
+                                <thead>
+                                    <tr>
+                                        <th scope="col">PORT</th>
+                                        <th scope="col">CVE ID</th>
+                                        <th scope="col">DESCRIPTION</th>
+                                        <th scope="col">SEVERITY</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="vulns-body"></tbody>
+                            </table>
+                        </div>
+                    </section>
+                </div>
+
+                <div class="dashboard-grid__side">
+                    <section class="panel">
+                        <header class="panel__header">
+                            <h2 class="panel__title">SEVERITY BREAKDOWN</h2>
+                        </header>
+                        <div class="severity-chart">
+                            <div class="severity-chart__row">
+                                <span class="severity-chart__label">Critical</span>
+                                <div class="severity-chart__track">
+                                    <div class="severity-chart__bar bg-critical" id="bar-critical" style="width: 0%;"></div>
+                                </div>
+                                <span class="severity-chart__value text-bright" id="val-critical">0</span>
+                            </div>
+                            <div class="severity-chart__row">
+                                <span class="severity-chart__label">High</span>
+                                <div class="severity-chart__track">
+                                    <div class="severity-chart__bar bg-high" id="bar-high" style="width: 0%;"></div>
+                                </div>
+                                <span class="severity-chart__value text-bright" id="val-high">0</span>
+                            </div>
+                            <div class="severity-chart__row">
+                                <span class="severity-chart__label">Medium</span>
+                                <div class="severity-chart__track">
+                                    <div class="severity-chart__bar bg-medium" id="bar-medium" style="width: 0%;"></div>
+                                </div>
+                                <span class="severity-chart__value text-bright" id="val-medium">0</span>
+                            </div>
+                            <div class="severity-chart__row">
+                                <span class="severity-chart__label">Low</span>
+                                <div class="severity-chart__track">
+                                    <div class="severity-chart__bar bg-low" id="bar-low" style="width: 0%;"></div>
+                                </div>
+                                <span class="severity-chart__value text-bright" id="val-low">0</span>
+                            </div>
+                        </div>
+                    </section>
+
+                    <section class="panel">
+                        <header class="panel__header">
+                            <h2 class="panel__title">SCAN HISTORY</h2>
+                        </header>
+                        <ul class="history-list" id="history-list">
+                            <li class="history-list__item">
+                                <span class="history-list__ip text-bright">192.168.56.104</span>
+                                <span class="history-list__time">Today, 14:02</span>
+                            </li>
+                            <li class="history-list__item">
+                                <span class="history-list__ip text-bright">127.0.0.1</span>
+                                <span class="history-list__time">Today, 11:40</span>
+                            </li>
+                            <li class="history-list__item">
+                                <span class="history-list__ip text-bright">192.168.56.101</span>
+                                <span class="history-list__time">Yesterday, 19:15</span>
+                            </li>
+                            <li class="history-list__item">
+                                <span class="history-list__ip text-bright">10.0.2.15</span>
+                                <span class="history-list__time">Yesterday, 18:02</span>
+                            </li>
+                        </ul>
+                    </section>
+                </div>
+            </div>
+        </main>
+
+        <footer class="footer">
+            <p>NetSentry v0.1 &mdash; B.Tech Mini Project &mdash; Scan results are for authorized lab environments only</p>
+        </footer>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

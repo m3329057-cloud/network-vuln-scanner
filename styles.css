@@ -1,0 +1,441 @@
+:root {
+    /* Color Palette */
+    --bg-base: #090e0c;
+    --bg-panel: #111a17;
+    --bg-panel-hover: #15201c;
+    --bg-track: #1a2622;
+    
+    --border-color: #1e2d28;
+    --border-light: #2a3f38;
+    
+    --text-muted: #6b877c;
+    --text-main: #8b9d96;
+    --text-bright: #e2e8f0;
+    --text-dark: #090e0c;
+    
+    --color-accent: #4ade80; 
+    --color-accent-hover: #22c55e;
+    
+    
+    --color-critical: #ef4444;
+    --color-high: #f97316;
+    --color-medium: #eab308;
+    --color-low: #38bdf8;
+
+    /* Typography */
+    --font-mono: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, Courier, monospace;
+    
+    /* Spacing */
+    --space-xs: 0.25rem;
+    --space-sm: 0.5rem;
+    --space-md: 1rem;
+    --space-lg: 1.5rem;
+    --space-xl: 2rem;
+    
+    /* Borders */
+    --radius-sm: 4px;
+    --radius-md: 6px;
+    --radius-pill: 9999px;
+}
+
+/* =========================================
+   Reset & Base Styles
+   ========================================= */
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: var(--font-mono);
+    background-color: var(--bg-base);
+    color: var(--text-main);
+    font-size: 14px;
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
+
+/* =========================================
+   Typography & Utilities
+   ========================================= */
+.text-accent { color: var(--color-accent); }
+.text-bright { color: var(--text-bright); }
+
+.bg-critical { background-color: var(--color-critical); }
+.bg-high { background-color: var(--color-high); }
+.bg-medium { background-color: var(--color-medium); }
+.bg-low { background-color: var(--color-low); }
+
+/* =========================================
+   Layout
+   ========================================= */
+.app-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: var(--space-lg);
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-lg);
+    flex: 1;
+}
+
+/* =========================================
+   Header
+   ========================================= */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: var(--space-md);
+    border-bottom: 1px solid var(--border-color);
+}
+
+.header__brand {
+    display: flex;
+    align-items: center;
+    gap: var(--space-sm);
+}
+
+.header__logo-icon {
+    width: 12px;
+    height: 12px;
+}
+
+.header__title {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--color-accent);
+    letter-spacing: 0.05em;
+}
+
+.header__status {
+    display: flex;
+    align-items: center;
+    gap: var(--space-sm);
+    font-size: 0.75rem;
+    color: var(--color-accent);
+    border: 1px solid var(--border-light);
+    padding: var(--space-xs) var(--space-sm);
+    border-radius: var(--radius-pill);
+    letter-spacing: 0.05em;
+}
+
+.status-indicator {
+    width: 6px;
+    height: 6px;
+    background-color: var(--color-accent);
+    border-radius: 50%;
+    box-shadow: 0 0 8px var(--color-accent);
+}
+
+/* =========================================
+   Panels
+   ========================================= */
+.panel {
+    background-color: var(--bg-panel);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-md);
+    padding: var(--space-lg);
+}
+
+.panel__header {
+    margin-bottom: var(--space-lg);
+}
+
+.panel__title {
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-weight: 600;
+}
+
+/* =========================================
+   Scan Control Bar
+   ========================================= */
+.scan-control {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: var(--space-md) var(--space-lg);
+    gap: var(--space-md);
+}
+
+.scan-control__input {
+    background: transparent;
+    border: none;
+    color: var(--text-bright);
+    font-family: inherit;
+    font-size: 1rem;
+    flex: 1;
+    outline: none;
+}
+
+.btn {
+    font-family: inherit;
+    font-size: 0.875rem;
+    font-weight: 700;
+    padding: var(--space-sm) var(--space-lg);
+    border-radius: var(--radius-sm);
+    cursor: pointer;
+    transition: all 0.2s ease;
+    border: none;
+    letter-spacing: 0.05em;
+}
+
+.btn--primary {
+    background-color: var(--color-accent);
+    color: var(--text-dark);
+}
+
+.btn--primary:hover {
+    background-color: var(--color-accent-hover);
+    box-shadow: 0 0 12px rgba(74, 222, 128, 0.3);
+}
+
+.btn:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    background-color: var(--text-muted);
+    color: var(--text-dark);
+}
+
+.btn:disabled:hover {
+    background-color: var(--text-muted);
+    box-shadow: none;
+}
+
+/* =========================================
+   Scanning State
+   ========================================= */
+.header__status--scanning {
+    border-color: var(--color-medium);
+    color: var(--color-medium);
+}
+
+.header__status--scanning .status-indicator {
+    background-color: var(--color-medium);
+    box-shadow: 0 0 8px var(--color-medium);
+    animation: status-pulse 1s ease-in-out infinite;
+}
+
+@keyframes status-pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.25; }
+}
+
+@keyframes row-flash {
+    0% { background-color: rgba(74, 222, 128, 0.16); }
+    100% { background-color: transparent; }
+}
+
+.data-table tbody tr.flash {
+    animation: row-flash 1.15s ease-out;
+}
+
+.data-table td.text-muted {
+    color: var(--text-muted);
+}
+
+/* Severity bar transition */
+.severity-chart__bar {
+    transition: width 1s cubic-bezier(0.25, 0.8, 0.35, 1);
+}
+
+/* =========================================
+   Dashboard Grid
+   ========================================= */
+.dashboard-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-lg);
+}
+
+@media (min-width: 1024px) {
+    .dashboard-grid {
+        grid-template-columns: 2fr 1fr;
+    }
+}
+
+.dashboard-grid__main,
+.dashboard-grid__side {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-lg);
+}
+
+/* =========================================
+   Data Tables
+   ========================================= */
+.table-responsive {
+    overflow-x: auto;
+}
+
+.data-table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: left;
+}
+
+.data-table th {
+    color: var(--text-muted);
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    font-weight: 600;
+    padding-bottom: var(--space-md);
+    border-bottom: 1px solid var(--border-color);
+}
+
+.data-table td {
+    padding: var(--space-md) 0;
+    font-size: 0.875rem;
+    border-bottom: 1px solid rgba(30, 45, 40, 0.5);
+}
+
+.data-table tbody tr:last-child td {
+    border-bottom: none;
+    padding-bottom: 0;
+}
+
+.data-table th:not(:first-child),
+.data-table td:not(:first-child) {
+    padding-left: var(--space-md);
+}
+
+/* =========================================
+   Badges
+   ========================================= */
+.badge {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.15rem 0.6rem;
+    font-size: 0.65rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    border-radius: var(--radius-pill);
+    border: 1px solid;
+    letter-spacing: 0.05em;
+    background-color: transparent;
+}
+
+.badge--critical {
+    color: var(--color-critical);
+    border-color: var(--color-critical);
+}
+
+.badge--high {
+    color: var(--color-high);
+    border-color: var(--color-high);
+}
+
+.badge--medium {
+    color: var(--color-medium);
+    border-color: var(--color-medium);
+}
+
+.badge--low {
+    color: var(--color-low);
+    border-color: var(--color-low);
+}
+
+/* =========================================
+   Severity Chart
+   ========================================= */
+.severity-chart {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-md);
+}
+
+.severity-chart__row {
+    display: flex;
+    align-items: center;
+    gap: var(--space-md);
+}
+
+.severity-chart__label {
+    width: 60px;
+    font-size: 0.875rem;
+    color: var(--text-muted);
+}
+
+.severity-chart__track {
+    flex: 1;
+    height: 6px;
+    background-color: var(--bg-track);
+    border-radius: var(--radius-pill);
+    overflow: hidden;
+}
+
+.severity-chart__bar {
+    height: 100%;
+    border-radius: var(--radius-pill);
+}
+
+.severity-chart__value {
+    width: 20px;
+    text-align: right;
+    font-size: 0.875rem;
+}
+
+/* =========================================
+   History List
+   ========================================= */
+.history-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+}
+
+.history-list__item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: var(--space-sm) 0;
+    font-size: 0.875rem;
+    border-bottom: 1px solid rgba(30, 45, 40, 0.5);
+}
+
+.history-list__item:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+}
+
+.history-list__item:first-child {
+    padding-top: 0;
+}
+
+.history-list__time {
+    color: var(--text-muted);
+    font-size: 0.75rem;
+}
+
+/* =========================================
+   Footer
+   ========================================= */
+.footer {
+    margin-top: auto;
+    text-align: center;
+    padding-top: var(--space-xl);
+    color: var(--text-muted);
+    font-size: 0.75rem;
+}
